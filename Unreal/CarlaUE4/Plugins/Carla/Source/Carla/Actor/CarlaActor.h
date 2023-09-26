@@ -20,13 +20,13 @@
 class AActor;
 
 /// A view over an actor and its properties.
-class FCarlaActor
+class FCarlaActor // Carla中所有实体的基类
 {
 public:
 
   using IdType = uint32;
 
-  enum class ActorType : uint8
+  enum class ActorType : uint8 // Carla中实体的类型
   {
     Other,
     Vehicle,
@@ -53,7 +53,7 @@ public:
 
   bool IsInValid() const
   {
-    return (carla::rpc::ActorState::Invalid == State);
+    return (carla::rpc::ActorState::Invalid == State); // 有这几种状态：Invalid, Active, Dormant（休眠）, PendingKill
   }
 
   bool IsAlive() const
